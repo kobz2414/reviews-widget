@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const ProductRating = ({ rating }) => {
+const ProductRating = ({ rating = 0 }) => {
   const max_stars = 5
   const filled_stars = Math.floor(rating)
 
