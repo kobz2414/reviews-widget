@@ -7,11 +7,18 @@ exports.addReview = async (req, res) => {
         const { title, description, rating } = req.body
         const { productId } = req.params
 
+        //Check for negative rating or over 5
+        if(parseInt(rating) < 0){
+            rating = 0
+        }else if (parseInt(rating) > 5){
+            rating = 5
+        }
+
         //Create a new Review object
         const review_data = new Review({
             productId: productId,
-            title: title,
-            description: description,
+            title: title ?? "",
+            description: description ?? "",
             rating: rating
         })
 
