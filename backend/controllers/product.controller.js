@@ -54,3 +54,26 @@ exports.getProductReviews = async (req,res ) => {
         )
     }
 }
+
+exports.getProductRatings = async (req, res) => {
+    try{
+        //Get new data from request object
+        const { productId } = req.params
+
+        //Find reviews under a product
+        const product_reviews = await Review.find({ productId: productId })
+
+        //Add all product review ratings
+        const product_ratings = product_reviews.reduce((accumulator, current_value) => {
+            return accumulator + current_value.rating
+        }, 0)
+
+        //Get the average product rating
+        const average_rating = (product_ratings / product_reviews.length).toFixed(2)
+
+        //Return average product rating
+        return res.status(200).json({ ratings: average_rating})
+    }catch (err){
+        return res.status(400).json({error: "Something went wrong", message: err.message})
+    }
+}
