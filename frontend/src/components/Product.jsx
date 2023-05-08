@@ -48,22 +48,22 @@ const Product = () => {
   return (
     <>
       <div className="max-w-7xl mx-auto">
-        <div className="my-10 px-2 sm:px-6 lg:px-8 outline-dashed">
+        <div className="my-10 px-2 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row">
             {/* Left colum*/}
-            <div className="flex-shrink-0 sm:w-1/2 items-center outline-dashed flex justify-center">
+            <div className="flex-shrink-0 sm:w-1/2 items-center flex justify-center">
               <ProductImage />
             </div>
 
             {/* Right column*/}
-            <div className="flex flex-col sm:w-1/2 sm:ml-6 m-2 outline-dashed justify-center">
+            <div className="flex flex-col sm:w-1/2 sm:ml-6 m-2 justify-center">
               <div className="my-4">
                 <ProductName />
                 <ProductRating rating = {productRating?.ratings} refresh = {isRefreshData}/>
               </div>
               <ProductPrice />
               <ProductDescription />
-              <div className="flex justify-center my-5 outline-dashed">
+              <div className="flex justify-center my-5">
                 <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 w-36 h-10 rounded-full">
                   Add to Cart
                 </button>
@@ -83,7 +83,7 @@ const Product = () => {
                 </button>
                 {isModalOpen && <AddProductReview onClose={handleCloseModal} refresh={isRefreshData}/>}
             </span>
-            <div className="flex justify-center items-center m-auto p-5 outline-dashed">
+            <div className="flex justify-center items-center m-auto p-5">
                 <div className="w-full">
                     {/* Left Col*/}
                     <ProductReviewList reviews={productReviews} refresh={isRefreshData}/>

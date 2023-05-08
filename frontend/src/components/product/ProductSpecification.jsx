@@ -13,8 +13,8 @@ const ProductSpecification = () => {
       ];
 
     return ( <>
-        <div className="flex justify-center items-center m-auto p-5 outline-dashed">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full outline-dashed">
+        <div className="flex justify-center items-center m-auto p-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
             {product_specifications.map((spec, index) => (
               <div key={index}>
                 <span className="text-base font-bold">{spec.title} </span>
