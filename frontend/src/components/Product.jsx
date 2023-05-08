@@ -4,6 +4,7 @@ import ProductName from "./product/ProductName";
 import ProductPrice from "./product/ProductPrice";
 import ProductRating from "./product/ProductRating";
 import ProductSpecification from "./product/ProductSpecification"
+import ProductReview from "./product/ProductReview"
 
 const Product = () => {
   return (
@@ -35,6 +36,11 @@ const Product = () => {
 
         <h2 className="text-5xl font-bold mb-2 mx-4">Specifications</h2>
         <ProductSpecification />
+
+        <div className="my-10">
+            <h2 className="text-5xl font-bold mb-2 mx-4">Reviews</h2>
+            <ProductReview />
+        </div>
       </div>
     </>
   );
