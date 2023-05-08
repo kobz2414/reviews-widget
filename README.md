@@ -21,28 +21,28 @@ This is a reviews widget program built with Node.js, Express, React, Docker, and
 
 1. Clone the repository:
 
-  ```bash
+```bash
   git clone https://github.com/kobz2414/reviews-widget.git
-  ```
-   
+```
+
 2. Install the dependencies for both the backend and frontend:
 
-  ```bash
+```bash
   cd reviews-widget/backend
   npm install
 
   cd ../frontend
   npm install
-  ```
+```
 
 3. Set up the MongoDB connection:
 
-  - Ensure you have MongoDB installed and running on your system.
-  - Update the MongoDB connection URL in the backend configuration file: `reviews-widget/backend/.env`
+- Ensure you have MongoDB installed and running on your system.
+- Update the MongoDB connection URL in the backend configuration file: `reviews-widget/backend/.env`
 
 4. Start the application:
 
-  ```bash
+```bash
   # Start the backend server
   cd reviews-widget/backend
   npm start
@@ -50,20 +50,20 @@ This is a reviews widget program built with Node.js, Express, React, Docker, and
   # Start the frontend development server
   cd ../frontend
   npm dev
-  ```
-  
-5.  Access the application in your web browser at `http://localhost:4173`
+```
+
+5. Access the application in your web browser at `http://localhost:4001`
 
 ## Deployment with Docker
+
 To deploy the reviews widget program using Docker, follow these steps:
 
 1. Install Docker on your system: `https://docs.docker.com/engine/install/`
-
 2. Build the Docker image:
 
-  ```bash
+```bash
   cd reviews-widget
   docker-compose up --build
-  ```
-  
-3.  Access the application in your web browser at `http://localhost:4173`
+```
+
+3. Access the application in your web browser at `http://localhost:4001`
