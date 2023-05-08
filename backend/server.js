@@ -33,3 +33,5 @@ server.listen(PORT, () => {
 //Add routes
 require('./routes/product.route')(server)
 require('./routes/review.route')(server)
+
+module.exports = server
