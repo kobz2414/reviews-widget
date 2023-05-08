@@ -2,6 +2,9 @@
 import ProductReviewRating from "./ProductReviewRating";
 
 const ProductReview = ({ review, onVote }) => {
+    // Get the correct rating of review votes
+    const votes = review.upvotes - review.downvotes
+
   const handleVote = (id, type) => {
     // Call the parent onVote function to handle the vote
     onVote(id, type);
@@ -9,13 +12,13 @@ const ProductReview = ({ review, onVote }) => {
 
   return (
     <>
-      <div key={review.id} className="border p-4 my-4 flex items-center">
+      <div className="border p-4 my-4 flex items-center">
         <div className="flex flex-col items-center">
-          <button onClick={() => handleVote(review.id, "upvote")}>
+          <button onClick={() => handleVote(review._id, "upvote")}>
             <img src="TriangleUp.png" alt="Up" className="h-4 flex-1 my-1" />
           </button>
-          <span className="text-xl font-bold flex-1">{review.votes}</span>
-          <button onClick={() => handleVote(review.id, "downvote")}>
+          <span className="text-xl font-bold flex-1">{votes}</span>
+          <button onClick={() => handleVote(review._id, "downvote")}>
             <img
               src="TriangleDown.png"
               alt="Down"
