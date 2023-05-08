@@ -1,27 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductReview from "./ProductReview"
-import { getReviews } from "../../api/product";
+import { upvoteReview, downvoteReview } from "../../api/product";
 
-function ProductReviewList(){
+function ProductReviewList({ reviews, refresh }){
     const [response, setResponse] = useState([])
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [reviews])
 
     const fetchData = async () =>{
-        try{
-            const res = await getReviews()
-            setResponse(res.data)
-        }catch(error){
-            console.log(error.message)
-        }
+      setResponse(reviews)
     }
 
-  const handleVote = (id, type) => {
-    
+  const handleVote = async (id, type) => {
+    if(type === 'upvote'){
+        await upvoteReview(id)
+        refresh()
+    }
+
+    if(type === 'downvote'){
+        await downvoteReview(id)
+        refresh()
+    }
   }
 
   return (
@@ -32,7 +37,7 @@ function ProductReviewList(){
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
 export default ProductReviewList;
