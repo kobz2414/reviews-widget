@@ -7,4 +7,10 @@ describe('/GET /reviews', () => {
         expect(response.statusCode).toBe(200)
         expect(response.headers["content-type"]).toEqual(expect.stringContaining("json"))
     })
+
+    test('should return product rating', async () => {
+        const response = await request(server).get("/api/products/123123/rating")
+        expect(response.statusCode).toBe(200)
+        expect(response.headers["content-type"]).toEqual(expect.stringContaining("json"))
+    })
 })
