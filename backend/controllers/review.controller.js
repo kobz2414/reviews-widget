@@ -14,3 +14,17 @@ exports.upvoteReview = async () => {
         return res.status(400).json({error: "Something went wrong", message: err.message})
     }
 }
+
+exports.downvoteReview = async () => {
+    try{
+        //Get new data from request object
+        const { reviewId } = req.params
+
+        //Find and increment review upvote count
+        await Review.updateOne({ _id: reviewId }, { $inc: { downvotes: 1 } })
+
+        return res.status(200).json({ error: "Successfully downvotes" })
+    }catch (err){
+        return res.status(400).json({error: "Something went wrong", message: err.message})
+    }
+}
