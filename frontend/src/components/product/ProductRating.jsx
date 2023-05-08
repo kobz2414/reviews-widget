@@ -1,7 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-const ProductRating = ({ rating = 0 }) => {
+import { useState, useEffect } from "react"
+
+const ProductRating = ({ rating = 0, refresh}) => {
+  const [productRating, setProductRating] = useState(0)
+  
   const max_stars = 5
   const filled_stars = Math.floor(rating)
+
+  useEffect(() => {
+    renderStars()
+    setProductRating(rating)
+  }, [refresh])
 
   const renderStars = () => {
     const stars = []
@@ -30,7 +40,7 @@ const ProductRating = ({ rating = 0 }) => {
   return (
     <div className="rating-stars flex items-center">
       {renderStars()}
-      <span className="rating-value ml-2">{rating}</span>
+      <span className="rating-value ml-2">{productRating}</span>
     </div>
   )
 }
