@@ -1,5 +1,5 @@
-const ProductRating = () => {
-  const rating = 3.7
+/* eslint-disable react/prop-types */
+const ProductRating = ({ rating }) => {
   const max_stars = 5
   const filled_stars = Math.floor(rating)
 
