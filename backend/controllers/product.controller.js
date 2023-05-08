@@ -29,3 +29,28 @@ exports.addReview = async (req, res) => {
         )
     }
 }
+
+exports.getProductReviews = async (req,res ) => {
+    try{
+        //Get product ID
+        const { productId } = req.params
+
+        //Find reviews under product
+        const product_reviews = await Review.find({ productId: productId })
+
+        //Sorting product reviews based on product upvotes and downvotes
+        product_reviews.sort((a,b) => {
+            return (b.upvotes - b.downvotes) - (a.upvotes - a.downvotes)
+        })
+
+        //Return sorted product reviews
+        return res.status(200).send(product_reviews)
+    }catch(err){
+        return res.status(400).json(
+            { 
+                error: "Something went wrong",
+                message: err.message
+            }
+        )
+    }
+}
