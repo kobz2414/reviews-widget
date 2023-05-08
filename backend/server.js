@@ -1,5 +1,6 @@
 const express = require("express")
 const server = express()
+const cors = require("cors")
 const dotenv = require("dotenv")
 const db = require("./models")
 
@@ -8,6 +9,9 @@ server.use(express.json())
 
 // parse requests of content-type - application/x-www-form-urlencoded
 server.use(express.urlencoded({ extended: true }))
+
+// Enable CORS to allow requests from different domains
+server.use(cors())
 
 //Allow environment variables access
 dotenv.config()
