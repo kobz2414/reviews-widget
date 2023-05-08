@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "jest --watchAll --verbose"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
