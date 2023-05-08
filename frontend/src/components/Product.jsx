@@ -14,12 +14,11 @@ const Product = () => {
     const [productRating, setProductRating] = useState([])
     const [productReviews, setProductReviews] = useState([])
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [refresh, setRefresh] = useState(false)
-
+    // const [refresh, setRefresh] = useState(false)
 
     useEffect(() => {
       fetchData();
-    }, [refresh])
+    }, [])
   
     const fetchData = async () =>{
         //Set productID 123123 since data is fixed
@@ -41,9 +40,9 @@ const Product = () => {
         setIsModalOpen(false);
     }
 
-    const isRefreshData = () => {
-        setRefresh(!refresh);
-    }
+    // const isRefreshData = () => {
+    //     setRefresh(!refresh);
+    // }
 
   return (
     <>
@@ -59,7 +58,7 @@ const Product = () => {
             <div className="flex flex-col sm:w-1/2 sm:ml-6 m-2 justify-center">
               <div className="my-4">
                 <ProductName />
-                <ProductRating rating = {productRating?.ratings} refresh = {isRefreshData}/>
+                <ProductRating rating = {productRating?.ratings} refresh = {fetchData}/>
               </div>
               <ProductPrice />
               <ProductDescription />
@@ -81,12 +80,12 @@ const Product = () => {
                 <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 w-36 h-10 rounded-full sm:mx-5" onClick={() => handleOpenModal()}>
                     Add review
                 </button>
-                {isModalOpen && <AddProductReview onClose={handleCloseModal} refresh={isRefreshData}/>}
+                {isModalOpen && <AddProductReview onClose = { handleCloseModal } refresh = { fetchData }/>}
             </span>
             <div className="flex justify-center items-center m-auto p-5">
                 <div className="w-full">
                     {/* Left Col*/}
-                    <ProductReviewList reviews={productReviews} refresh={isRefreshData}/>
+                    <ProductReviewList reviews = { productReviews } refresh = { fetchData }/>
                 </div>
             </div>
         </div>

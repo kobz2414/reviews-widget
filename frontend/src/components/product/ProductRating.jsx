@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 const ProductRating = ({ rating = 0, refresh}) => {
   const [productRating, setProductRating] = useState(0)
+  const [stars, setStars] = useState([])
   
   const max_stars = 5
   const filled_stars = Math.floor(rating)
@@ -11,13 +12,14 @@ const ProductRating = ({ rating = 0, refresh}) => {
   useEffect(() => {
     renderStars()
     setProductRating(rating)
-  }, [refresh])
+    refresh()
+  }, [rating, refresh])
 
   const renderStars = () => {
-    const stars = []
+    const stars_array = []
 
     for (let i = 0; i < filled_stars; i++) {
-      stars.push(
+      stars_array.push(
         <span key={i} className="text-yellow-400 text-2xl">
           &#9733;
         </span>
@@ -27,19 +29,19 @@ const ProductRating = ({ rating = 0, refresh}) => {
     const remaining_stars = max_stars - filled_stars
 
     for (let i = 0; i < remaining_stars; i++) {
-      stars.push(
+      stars_array.push(
         <span key={filled_stars + i} className="text-gray-300 text-2xl">
           &#9734;
         </span>
       )
     }
 
-    return stars
-  };
+    setStars(stars_array)
+  }
 
   return (
     <div className="rating-stars flex items-center">
-      {renderStars()}
+      {stars}
       <span className="rating-value ml-2">{productRating}</span>
     </div>
   )

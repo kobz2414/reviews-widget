@@ -7,16 +7,6 @@ import ProductReview from "./ProductReview"
 import { upvoteReview, downvoteReview } from "../../api/product";
 
 function ProductReviewList({ reviews, refresh }){
-    const [response, setResponse] = useState([])
-
-    useEffect(() => {
-        fetchData();
-    }, [reviews])
-
-    const fetchData = async () =>{
-      setResponse(reviews)
-    }
-
   const handleVote = async (id, type) => {
     if(type === 'upvote'){
         await upvoteReview(id)
@@ -32,7 +22,7 @@ function ProductReviewList({ reviews, refresh }){
   return (
     <>
       <div>
-        {response.map((review) => (
+        {reviews.map((review) => (
             <ProductReview key={review._id} review={review} onVote={handleVote}/>
         ))}
       </div>
