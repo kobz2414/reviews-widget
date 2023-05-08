@@ -19,7 +19,7 @@ services:
     build: ./frontend
     restart: always
     ports:
-      - "4001:4001"
+      - "4002:4002"
     depends_on:
       - mongodb
       - backend
