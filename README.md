@@ -38,7 +38,7 @@ This is a reviews widget program built with Node.js, Express, React, Docker, and
 3. Set up the MongoDB connection:
 
   - Ensure you have MongoDB installed and running on your system.
-  - Update the MongoDB connection URL in the backend configuration file: reviews-widget/backend/.env.
+  - Update the MongoDB connection URL in the backend configuration file: `reviews-widget/backend/.env`
 
 4. Start the application:
 
@@ -57,7 +57,7 @@ This is a reviews widget program built with Node.js, Express, React, Docker, and
 ## Deployment with Docker
 To deploy the reviews widget program using Docker, follow these steps:
 
-1. Install Docker on your system: Docker Installation Guide.
+1. Install Docker on your system: `https://docs.docker.com/engine/install/`
 
 2. Build the Docker image:
 
