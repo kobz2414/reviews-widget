@@ -20,8 +20,8 @@ const Product = () => {
             <div className="flex flex-col sm:w-1/2 sm:ml-6 m-2 outline-dashed justify-center">
               <div className="my-4">
                 <ProductName />
+                <ProductRating />
               </div>
-              <ProductRating />
               <ProductPrice />
               <ProductDescription />
               <div className="flex justify-center my-5 outline-dashed">
