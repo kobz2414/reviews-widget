@@ -3,6 +3,12 @@ const server = express()
 const dotenv = require("dotenv")
 const db = require("./models")
 
+// parse requests of content-type - application/json
+server.use(express.json())
+
+// parse requests of content-type - application/x-www-form-urlencoded
+server.use(express.urlencoded({ extended: true }))
+
 //Allow environment variables access
 dotenv.config()
 
