@@ -4,7 +4,7 @@ const Review = db.review
 exports.addReview = async (req, res) => {
     try{
         //Get data from request object
-        const { title, description, rating } = req.body
+        let { title, description, rating } = req.body
         const { productId } = req.params
 
         //Check for negative rating or over 5
