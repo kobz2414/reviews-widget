@@ -62,7 +62,7 @@ const Product = () => {
               </div>
               <ProductPrice />
               <ProductDescription />
-              <div className="flex justify-center my-5">
+              <div className="flex justify-start my-5">
                 <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 w-36 h-10 rounded-full">
                   Add to Cart
                 </button>
