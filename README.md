@@ -49,7 +49,7 @@ This is a reviews widget program built with Node.js, Express, React, Docker, and
 
   # Start the frontend development server
   cd ../frontend
-  npm dev
+  npm run dev
 ```
 
 5. Access the application in your web browser at `http://localhost:4001`
